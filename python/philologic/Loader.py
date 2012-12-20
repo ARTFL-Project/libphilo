@@ -35,7 +35,7 @@ default_filters = [
                    generate_pages, 
                    make_max_id]
 
-default_post_filters = [word_frequencies, metadata_frequencies]
+default_post_filters = [word_frequencies, metadata_frequencies, metadata_relevance_table]
 
 ## While these tables are loaded by default, you can override that default, although be aware
 ## that you will only have reduced functionality if you do. It is strongly recommended that you 
@@ -255,6 +255,7 @@ class Loader(object):
         ## Generate sorted file for word frequencies    
         counts_files = [i for i in os.listdir(self.workdir) if i.endswith('.freq_counts')]
         r_r_obj = set([re.sub('.+\.(\w+)\.freq_counts\Z', '\\1', i) for i in counts_files])
+        self.r_r_obj = r_r_obj ## Keep it for the metadata_relevance_table PostFilter
         for text_obj in r_r_obj:
             wordsargs = "sort -m " + sort_by_word + " " + sort_by_id + " " + "*.%s.freq_counts" % text_obj
             print "%s: sorting words frequencies" % time.ctime()
