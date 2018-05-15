@@ -132,9 +132,10 @@ Z32 h2m_cmp_sentence ( Z32 *a, Z32 *b, hitdef *hit_def, Z32 level )
 
   N32 real_levels = 0; 
 
-  N32 i, j, r, d; 
+  N32 i, j, r;
+  Z32 d;
   N32 index;
-  if (r = h2h_cmp_sentence_lowlevel(a,b,INDEX_DEF_PARAGRAPH)) {
+  if ((r = h2h_cmp_sentence_lowlevel(a,b,INDEX_DEF_PARAGRAPH))) {
   	return r;
   }
   index = INDEX_DEF_SENTENCE - 1;

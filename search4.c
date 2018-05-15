@@ -81,13 +81,13 @@ int main(int argc, char **argv) {
 		}
 		if (argcounter == 2) {
 			strncpy(method, argv[optind],256);
-//			printf("search method is %s\n",method);
+			printf("search method is %s\n",method);
 			method_set = 1;
 		}
 		if (argcounter == 3) {
-		  strncpy(search_arg, argv[optind], 256);
-		  //		  printf("search arg is %s\n",search_arg);
-		  arg_set = 1;
+			strncpy(search_arg, argv[optind], 256);
+		  	printf("search arg is %s\n",search_arg);
+		  	arg_set = 1;
 		}
 		optind += 1;
 		argcounter += 1;
@@ -113,7 +113,7 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 	//	s->batches->map = s->map; 
-	while ( status = search_pass ( s, 0 ) == SEARCH_PASS_OK ) {
+	while ( (status = search_pass ( s, 0 )) == SEARCH_PASS_OK ) {
 		continue;
 	}
 	delete_search(s);

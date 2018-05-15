@@ -4,6 +4,10 @@
 #include <string.h>
 #include <math.h>
 
+void printUsage(){
+	fprintf(stderr, "Usage: pack4 [dbspecs4 file] < all_words_sorted\n");
+}
+
 int main(int argc, char **argv) {
 // main() should probably be in a separate file, and pack.c should get linked into libphilo.  
 
@@ -25,6 +29,7 @@ int main(int argc, char **argv) {
 	hit[8] = 0;
 
 	if (argc < 2) {
+		printUsage();
 		exit(1);
 	}
 	
